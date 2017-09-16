@@ -3,13 +3,16 @@
   "version": "1.0.0",
   "description": "server for marand todo",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.15.4"
+  },
   "devDependencies": {
-    "@types/node": "^8.0.28"
+    "@types/node": "^8.0.28",
+    "@types/express": "*"
   },
   "scripts": {
-  	"b": "tsc && (mkdir dist || true) && mv src/*.js* dist/",
-  	"start": "node dist",
+    "b": "tsc && (mkdir dist || true) && mv src/*.js* dist/",
+    "start": "node dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
