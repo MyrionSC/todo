@@ -4,11 +4,13 @@
   "description": "server for marand todo",
   "main": "index.js",
   "dependencies": {
+    "body-parser": "^1.18.1",
     "express": "^4.15.4"
   },
   "devDependencies": {
-    "@types/node": "^8.0.28",
-    "@types/express": "*"
+    "@types/body-parser": "^1.16.5",
+    "@types/express": "*",
+    "@types/node": "^8.0.28"
   },
   "scripts": {
     "b": "tsc && (mkdir dist || true) && mv src/*.js* dist/",

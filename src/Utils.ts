@@ -1,16 +1,16 @@
 const fs = require('fs');
 
 export class Utils {
-    public static saveData(short: Array<string>, long: Array<string>) {
-        let obj = {
-            "short": short,
-            "long": long
-        };
+    public static saveData(short: string[], long: string[], callback?: Function) {
+        let obj = this.createDataObj(short, long);
         let data = JSON.stringify(obj);
 
         fs.writeFile(__dirname + "/data.json", data, (err: Error) => {
             if (err) {
                 return console.error(err.message);
+            }
+            if (callback) {
+                callback();
             }
             console.log("write succesful");
         });
@@ -25,6 +25,13 @@ export class Utils {
             }
             callback(data);
         });
+    }
+
+    public static createDataObj(short: string[], long: string[]) {
+        return {
+            "short": short,
+            "long": long
+        };
     }
 }
 
