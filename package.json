@@ -1,0 +1,23 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "server for marand todo",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^8.0.28"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MyrionSC/todo.git"
+  },
+  "author": "Marand",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MyrionSC/todo/issues"
+  },
+  "homepage": "https://github.com/MyrionSC/todo#readme"
+}
