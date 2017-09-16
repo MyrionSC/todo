@@ -1,4 +1,4 @@
-Online todolist with terminal and browser interface
+Online todolist with terminal, browser and app interface
 
 -- server
 typescript
@@ -14,7 +14,7 @@ Rest:
     DELETE  shortterm(index: int)
     DELETE  longterm(index: int)
 
--- browser
+-- browser and app
 Angular2
 
 list shortterm and longterm lists, allow for delete and add
