@@ -8,6 +8,8 @@
     "@types/node": "^8.0.28"
   },
   "scripts": {
+  	"b": "tsc",
+  	"start": "node dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
