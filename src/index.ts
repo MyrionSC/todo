@@ -1,8 +1,10 @@
 #!/usr/bin/env node
 import express = require('express');
 import bodyParser = require('body-parser');
+import path = require('path');
 let app = express();
 
+app.use(express.static(__dirname));
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(bodyParser.json()); // for parsing application/json
 
@@ -21,6 +23,10 @@ Utils.readDataFile((data: string) => {
 
     short = dataobj.short;
     long = dataobj.long;
+});
+
+app.use('/*', (req, res) => {
+    res.sendFile(path.join(__dirname,'index.html'));
 });
 
 // --- rest api
@@ -107,7 +113,7 @@ app.delete('/api/long', function(req: express.Request, res: express.Response){
 
 
 
-app.listen(3000, () => {
-    console.log("App listening on port 3000");
+app.listen(3001, () => {
+    console.log("App listening on port 3001");
 });
 

@@ -13,7 +13,8 @@
     "@types/node": "^8.0.28"
   },
   "scripts": {
-    "b": "tsc && (mkdir dist || true) && mv src/*.js* dist/",
+    "b": "tsc && (mkdir dist || true) && mv src/*.js* dist/ && npm run build --prefix frontend && cp -r frontend/dist/* dist/",
+    "bs": "npm run b && npm start",
     "start": "node dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

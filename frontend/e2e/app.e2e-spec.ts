@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('todo-browser App', () => {
+describe('augmented-chess App', () => {
   let page: AppPage;
 
   beforeEach(() => {
