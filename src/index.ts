@@ -25,10 +25,6 @@ Utils.readDataFile((data: string) => {
     long = dataobj.long;
 });
 
-app.use('/*', (req, res) => {
-    res.sendFile(path.join(__dirname,'index.html'));
-});
-
 // --- rest api
 app.get('/api/list', function(req: express.Request, res: express.Response){
     let dataobj = Utils.createDataObj(short, long);
@@ -106,12 +102,10 @@ app.delete('/api/long', function(req: express.Request, res: express.Response){
     }
 });
 
-
-
-
-
-
-
+// serve frontend if none of the api endpoints hit
+app.use('/*', (req, res) => {
+    res.sendFile(path.join(__dirname,'index.html'));
+});
 
 app.listen(3001, () => {
     console.log("App listening on port 3001");
