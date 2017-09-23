@@ -19,7 +19,7 @@ export class TodoComponent implements OnInit {
     ngOnInit() {
         this.dataService.getData().subscribe((data) => {
             console.log("data received:");
-            console.log(data)
+            console.log(data);
             this.short = data.short;
             this.long = data.long;
         });
