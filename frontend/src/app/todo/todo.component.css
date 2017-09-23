@@ -1,0 +1,20 @@
+.center {
+    margin: auto;
+    margin-top: 3em;
+
+}
+
+.todo {
+    width: 900px;
+    display: flex;
+}
+
+.short, .long {
+    width: 400px;
+    /*height: 500px;*/
+    /*background: peru;*/
+}
+
+.short {
+    margin-right: 100px;
+}

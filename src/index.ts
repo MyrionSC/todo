@@ -8,6 +8,12 @@ app.use(express.static(__dirname));
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(bodyParser.json()); // for parsing application/json
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 import { Utils } from './Utils';
 import {isNullOrUndefined} from "util";
 
@@ -107,7 +113,7 @@ app.use('/*', (req, res) => {
     res.sendFile(path.join(__dirname,'index.html'));
 });
 
-app.listen(3001, () => {
-    console.log("App listening on port 3001");
+app.listen(8080, () => {
+    console.log("App listening on port 8080");
 });
 
