@@ -11,6 +11,7 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Methods", "GET, POST, DELETE");
     next();
 });
 
@@ -64,7 +65,7 @@ app.post('/api/long', function(req: express.Request, res: express.Response){
     let item: string = req.body.item;
     if (item && typeof item === "string") {
         console.log("item received at /api/long: " + item);
-        short.push(item);
+        long.push(item);
         Utils.saveData(short, long, () => {
             res.send(200);
         });
@@ -75,8 +76,8 @@ app.post('/api/long', function(req: express.Request, res: express.Response){
     }
 });
 
-app.delete('/api/short', function(req: express.Request, res: express.Response){
-    let pos = req.body.pos;
+app.delete('/api/short/:pos', function(req: express.Request, res: express.Response){
+    let pos = Number(req.params.pos);
     if (!isNullOrUndefined(pos) && typeof pos === 'number') {
         console.log("delete request recieved for /api/short: " + pos)
         let deletedItem = short.splice(pos, 1)[0];
@@ -91,11 +92,11 @@ app.delete('/api/short', function(req: express.Request, res: express.Response){
         res.send('Bad request. data format should be: {"pos": 1}');
     }
 });
-app.delete('/api/long', function(req: express.Request, res: express.Response){
-    let pos = req.body.pos;
+app.delete('/api/long/:pos', function(req: express.Request, res: express.Response){
+    let pos = Number(req.params.pos);
     if (!isNullOrUndefined(pos) && typeof pos === 'number') {
         console.log("delete request recieved for /api/long: " + pos)
-        let deletedItem = short.splice(pos, 1)[0];
+        let deletedItem = long.splice(pos, 1)[0];
         if (deletedItem) {
             res.send(200);
         } else {

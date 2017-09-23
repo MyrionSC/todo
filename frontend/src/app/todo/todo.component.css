@@ -9,12 +9,44 @@
     display: flex;
 }
 
+h2 {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
 .short, .long {
-    width: 400px;
-    /*height: 500px;*/
-    /*background: peru;*/
+    width: 425px;
 }
 
 .short {
-    margin-right: 100px;
+    margin-right: 50px;
+}
+
+.items {
+    border: 1px solid #cccccc;
+    padding: 0;
+    list-style-position: inside;
+    margin: 0;
+    font-size: 20px;
+}
+
+.short li, .long li {
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+}
+.short li:hover, .long li:hover {
+    background: lightgray;
+}
+
+.short li span, .long li span {
+
+}
+
+input {
+
+    width: 412px;
+    padding: 5px;
+    margin-top: 10px;
+    font-size: 20px;
 }

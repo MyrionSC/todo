@@ -1,4 +1,20 @@
 <div class="center todo">
-  <div class="short"></div>
-  <div class="long"></div>
+  <div class="short">
+    <h2>Short Term</h2>
+    <ul class="items">
+      <li (click)="deleteShort(i)" *ngFor="let s of short; let i = index">
+        <span>{{s}}</span>
+      </li>
+    </ul>
+    <input autofocus [(ngModel)]="shortInput" (keydown.enter)="addShort()">
+  </div>
+  <div class="long">
+    <h2>Long Term</h2>
+    <div class="items">
+      <li (click)="deleteLong(i)" *ngFor="let l of long; let i = index">
+        <span>{{l}}</span>
+      </li>
+    </div>
+    <input [(ngModel)]="longInput" (keydown.enter)="addLong()">
+  </div>
 </div>
