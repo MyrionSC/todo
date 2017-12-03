@@ -1,8 +1,8 @@
 const fs = require('fs');
 
 export class Utils {
-    public static saveData(short: string[], long: string[], callback?: Function) {
-        let obj = this.createDataObj(short, long);
+    public static saveData(personal: string[], professional: string[], callback?: Function) {
+        let obj = this.createDataObj(personal, professional);
         let data = JSON.stringify(obj);
 
         fs.writeFile(__dirname + "/data.json", data, (err: Error) => {
@@ -21,16 +21,15 @@ export class Utils {
             if (err) {
                 console.error(err.message);
                 data = '{ "personal": [], "professional": [] }';
-                callback(data);
             }
             callback(data);
         });
     }
 
-    public static createDataObj(short: string[], long: string[]) {
+    public static createDataObj(personal: string[], professionalg: string[]) {
         return {
-            "short": short,
-            "long": long
+            "personal": personal,
+            "professional": professionalg
         };
     }
 }

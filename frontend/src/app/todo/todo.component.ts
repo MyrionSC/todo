@@ -25,14 +25,14 @@ export class TodoComponent implements OnInit {
         });
     }
 
-    addShort() {
+    addPersonal() {
         let str = this.personalInput;
         this.personalInput = "";
         this.dataService.addPersonal(str).subscribe(() => {
             this.personal.push(str);
         });
     }
-    addLong() {
+    addProfessional() {
         let str = this.professionalInput;
         this.professionalInput = "";
         this.dataService.addProfessional(str).subscribe(() => {

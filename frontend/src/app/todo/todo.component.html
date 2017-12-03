@@ -6,7 +6,7 @@
         <span>{{s}}</span>
       </p>
     </ul>
-    <input autofocus [(ngModel)]="personalInput" (keydown.enter)="addShort()">
+    <input autofocus [(ngModel)]="personalInput" (keydown.enter)="addPersonal()">
   </div>
   <div class="professional">
     <h2>Professionel</h2>
@@ -15,6 +15,6 @@
         <span>{{l}}</span>
       </p>
     </div>
-    <input [(ngModel)]="professionalInput" (keydown.enter)="addLong()">
+    <input [(ngModel)]="professionalInput" (keydown.enter)="addProfessional()">
   </div>
 </div>
