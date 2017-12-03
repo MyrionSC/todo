@@ -15,19 +15,19 @@ export class DataService {
         return this.http.get(this.url + 'api/list');
     }
 
-    addShort(str: string) {
-        return this.http.post(this.url + 'api/short/', {"item": str});
+    addPersonal(str: string) {
+        return this.http.post(this.url + 'api/personal/', {"item": str});
     }
 
-    addLong(str: string) {
-        return this.http.post(this.url + 'api/long/', {"item": str});
+    addProfessional(str: string) {
+        return this.http.post(this.url + 'api/professional/', {"item": str});
     }
 
-    deleteShort(n: number) {
-        return this.http.delete(this.url + 'api/short/' + n);
+    deletePersonal(n: number) {
+        return this.http.delete(this.url + 'api/personal/' + n);
     }
 
-    deleteLong(n: number) {
-        return this.http.delete(this.url + 'api/long/' + n);
+    deleteProfessional(n: number) {
+        return this.http.delete(this.url + 'api/professional/' + n);
     }
 }

@@ -28,8 +28,8 @@ Utils.readDataFile((data: string) => {
     console.log("Data loaded:");
     console.log(dataobj);
 
-    short = dataobj.short;
-    long = dataobj.long;
+    short = dataobj.personal;
+    long = dataobj.professional;
 });
 
 // --- rest api
@@ -38,48 +38,48 @@ app.get('/api/list', function(req: express.Request, res: express.Response){
     console.log("Sent data: " + JSON.stringify(dataobj));
     res.send(dataobj);
 });
-app.get('/api/short', function(req: express.Request, res: express.Response){
+app.get('/api/personal', function(req: express.Request, res: express.Response){
     console.log("Sent data: " + JSON.stringify(short));
     res.send(short);
 });
-app.get('/api/long', function(req: express.Request, res: express.Response){
+app.get('/api/professional', function(req: express.Request, res: express.Response){
     console.log("Sent data: " + JSON.stringify(long));
     res.send(long);
 });
 
-app.post('/api/short', function(req: express.Request, res: express.Response){
+app.post('/api/personal', function(req: express.Request, res: express.Response){
     let item: string = req.body.item;
     if (item && typeof item === "string") {
-        console.log("item received at /api/short: " + item);
+        console.log("item received at /api/personal: " + item);
         short.push(item);
         Utils.saveData(short, long, () => {
             res.send(200);
         });
     } else {
-        console.log("bad request received at /api/short");
+        console.log("bad request received at /api/personal");
         res.status(400);
         res.send('Bad request. data format should be: {"item": "string"}');
     }
 });
-app.post('/api/long', function(req: express.Request, res: express.Response){
+app.post('/api/professional', function(req: express.Request, res: express.Response){
     let item: string = req.body.item;
     if (item && typeof item === "string") {
-        console.log("item received at /api/long: " + item);
+        console.log("item received at /api/professional: " + item);
         long.push(item);
         Utils.saveData(short, long, () => {
             res.send(200);
         });
     } else {
-        console.log("bad request received at /api/long");
+        console.log("bad request received at /api/professional");
         res.status(400);
         res.send('Bad request. data format should be: {"item": "string"}');
     }
 });
 
-app.delete('/api/short/:pos', function(req: express.Request, res: express.Response){
+app.delete('/api/personal/:pos', function(req: express.Request, res: express.Response){
     let pos = Number(req.params.pos);
     if (!isNullOrUndefined(pos) && typeof pos === 'number') {
-        console.log("delete request recieved for /api/short: " + pos)
+        console.log("delete request recieved for /api/personal: " + pos)
         let deletedItem = short.splice(pos, 1)[0];
         if (deletedItem) {
             res.send(200);
@@ -87,15 +87,15 @@ app.delete('/api/short/:pos', function(req: express.Request, res: express.Respon
             res.send(404);
         }
     } else {
-        console.log("bad delete request recieved for /api/short");
+        console.log("bad delete request recieved for /api/personal");
         res.status(400);
         res.send('Bad request. data format should be: {"pos": 1}');
     }
 });
-app.delete('/api/long/:pos', function(req: express.Request, res: express.Response){
+app.delete('/api/professional/:pos', function(req: express.Request, res: express.Response){
     let pos = Number(req.params.pos);
     if (!isNullOrUndefined(pos) && typeof pos === 'number') {
-        console.log("delete request recieved for /api/long: " + pos)
+        console.log("delete request recieved for /api/professional: " + pos)
         let deletedItem = long.splice(pos, 1)[0];
         if (deletedItem) {
             res.send(200);
@@ -103,7 +103,7 @@ app.delete('/api/long/:pos', function(req: express.Request, res: express.Respons
             res.send(404);
         }
     } else {
-        console.log("bad delete request recieved for /api/long");
+        console.log("bad delete request recieved for /api/professional");
         res.status(400);
         res.send('Bad request. data format should be: {"pos": 1}');
     }

@@ -20,7 +20,7 @@ export class Utils {
         fs.readFile(__dirname + "/data.json", 'utf8', (err: Error, data: string) => {
             if (err) {
                 console.error(err.message);
-                data = '{ "short": [], "long": [] }';
+                data = '{ "personal": [], "professional": [] }';
                 callback(data);
             }
             callback(data);

@@ -7,11 +7,11 @@ import {DataService} from "../shared/services/data.service";
     styleUrls: ['./todo.component.css']
 })
 export class TodoComponent implements OnInit {
-    short: string[];
-    long: string[];
+    personal: string[];
+    professional: string[];
 
-    shortInput = "";
-    longInput = "";
+    personalInput = "";
+    professionalInput = "";
 
     constructor(private dataService: DataService) {
     }
@@ -20,36 +20,38 @@ export class TodoComponent implements OnInit {
         this.dataService.getData().subscribe((data) => {
             console.log("data received:");
             console.log(data);
-            this.short = data.short;
-            this.long = data.long;
+            this.personal = data.personal;
+            this.professional = data.professional;
         });
     }
 
     addShort() {
-        let str = this.shortInput;
-        this.shortInput = "";
-        this.dataService.addShort(str).subscribe(() => {
-            this.short.push(str);
+        let str = this.personalInput;
+        this.personalInput = "";
+        this.dataService.addPersonal(str).subscribe(() => {
+            this.personal.push(str);
         });
     }
     addLong() {
-        let str = this.longInput;
-        this.longInput = "";
-        this.dataService.addLong(str).subscribe(() => {
-            this.long.push(str);
+        let str = this.professionalInput;
+        this.professionalInput = "";
+        this.dataService.addProfessional(str).subscribe(() => {
+            this.professional.push(str);
         });
     }
 
-    deleteShort(n: number) {
+
+
+    deletePersonal(n: number) {
         console.log(n);
-        this.dataService.deleteShort(n).subscribe(() => {
-            this.short.splice(n, 1);
+        this.dataService.deletePersonal(n).subscribe(() => {
+            this.personal.splice(n, 1);
         });
     }
-    deleteLong(n: number) {
+    deleteProfessional(n: number) {
         console.log(n);
-        this.dataService.deleteLong(n).subscribe(() => {
-            this.long.splice(n, 1);
+        this.dataService.deleteProfessional(n).subscribe(() => {
+            this.professional.splice(n, 1);
         });
     }
 }

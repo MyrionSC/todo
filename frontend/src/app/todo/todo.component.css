@@ -1,3 +1,7 @@
+body {
+    background: beige;
+}
+
 .center {
     margin: auto;
     margin-top: 3em;
@@ -14,33 +18,30 @@ h2 {
     margin-bottom: 10px;
 }
 
-.short, .long {
+.personal, .professional {
     width: 425px;
 }
 
-.short {
+.personal {
     margin-right: 50px;
 }
 
 .items {
     border: 1px solid #cccccc;
     padding: 0;
-    list-style-position: inside;
+    padding-left: 8px;
     margin: 0;
     font-size: 20px;
+    background: lightgoldenrodyellow;
 }
 
-.short li, .long li {
+.personal p, .professional p {
     padding: 10px;
     margin: 5px;
     cursor: pointer;
 }
-.short li:hover, .long li:hover {
-    background: lightgray;
-}
-
-.short li span, .long li span {
-
+.personal p:hover, .professional p:hover {
+    background: palegoldenrod;
 }
 
 input {
