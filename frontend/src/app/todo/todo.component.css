@@ -34,20 +34,24 @@ h2 {
     font-size: 20px;
     background: lightgoldenrodyellow;
 }
-
-.personal p, .professional p {
-    padding: 10px;
-    margin: 5px;
-    cursor: pointer;
-}
-.personal p:hover, .professional p:hover {
-    background: palegoldenrod;
+.item-content {
+    width: 100%;
 }
 
 input {
-
     width: 412px;
     padding: 5px;
     margin-top: 10px;
     font-size: 20px;
 }
+
+.item-delete {
+    float: right;
+    height: 20px;
+    padding: 10px;
+    cursor: pointer;
+}
+.item-delete:hover {
+    background: palegoldenrod;
+}
+

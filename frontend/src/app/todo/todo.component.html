@@ -1,20 +1,28 @@
 <div class="center todo">
   <div class="personal">
     <h2>Personlig</h2>
-    <ul class="items">
-      <p (click)="deletePersonal(i)" *ngFor="let s of personal; let i = index">
-        <span>{{s}}</span>
-      </p>
-    </ul>
+    <table class="items">
+      <tr *ngFor="let item of personal; let i = index">
+        <td class="item-content">{{item}}</td>
+        <td>
+          <img class="item-delete" src="../../assets/images/delete.png"
+               (click)="deletePersonal(i)">
+        </td>
+      </tr>
+    </table>
     <input autofocus [(ngModel)]="personalInput" (keydown.enter)="addPersonal()">
   </div>
   <div class="professional">
     <h2>Professionel</h2>
-    <div class="items">
-      <p (click)="deleteProfessional(i)" *ngFor="let l of professional; let i = index">
-        <span>{{l}}</span>
-      </p>
-    </div>
+    <table class="items">
+      <tr *ngFor="let item of professional; let i = index">
+        <td class="item-content">{{item}}</td>
+        <td>
+          <img class="item-delete" src="../../assets/images/delete.png"
+               (click)="deleteProfessional(i)">
+        </td>
+      </tr>
+    </table>
     <input [(ngModel)]="professionalInput" (keydown.enter)="addProfessional()">
   </div>
 </div>
