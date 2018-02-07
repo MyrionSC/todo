@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {FormsModule} from "@angular/forms";
-import {AppRoutingModule} from "./app-routing.module";
 import {DataService} from "./shared/services/data.service";
 import {HttpClientModule} from "@angular/common/http";
 import { TodoComponent } from './todo/todo.component';
@@ -16,7 +15,6 @@ import { TodoComponent } from './todo/todo.component';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule,
     HttpClientModule
   ],
   providers: [DataService],

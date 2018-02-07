@@ -107,6 +107,7 @@ app.delete('/api/professional/:pos', function(req: express.Request, res: express
 
 // serve frontend if none of the api endpoints hit
 app.use('/*', (req, res) => {
+    console.log("Serving frontend");
     res.sendFile(path.join(__dirname,'index.html'));
 });
 
