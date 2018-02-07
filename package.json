@@ -17,7 +17,7 @@
     "b": "tsc && (mkdir dist || true) && mv src/*.js* dist/ && npm run build --prefix frontend && cp -r frontend/dist/* dist/",
     "prod": "tsc && (mkdir dist || true) && mv src/*.js* dist/ && npm run buildprod --prefix frontend && cp -r frontend/dist/* dist/",
     "bs": "npm run b && npm start",
-    "p": "npm run prod && scp -r dist/* pi@marand.dk:/home/pi/code/todo",
+    "p": "npm run prod && rm dist/data.json && scp -r dist/* pi@marand.dk:/home/pi/code/todo",
     "start": "node dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
