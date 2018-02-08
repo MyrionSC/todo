@@ -1,8 +1,8 @@
 <div class="center todo">
   <div class="personal">
     <h2>Personlig</h2>
-    <table class="items">
-      <tr *ngFor="let item of personal; let i = index">
+    <table class="items-table">
+      <tr class="item" *ngFor="let item of personal; let i = index">
         <td class="item-content">{{item}}</td>
         <td>
           <img class="item-delete" src="../../assets/images/delete.png"
@@ -14,8 +14,8 @@
   </div>
   <div class="professional">
     <h2>Professionel</h2>
-    <table class="items">
-      <tr *ngFor="let item of professional; let i = index">
+    <table class="items-table">
+      <tr class="item" *ngFor="let item of professional; let i = index">
         <td class="item-content">{{item}}</td>
         <td>
           <img class="item-delete" src="../../assets/images/delete.png"
