@@ -1,3 +1,5 @@
+
+
 body {
     background: beige;
 }
@@ -5,7 +7,6 @@ body {
 .center {
     margin: auto;
     margin-top: 3em;
-
 }
 
 .todo {
@@ -53,5 +54,15 @@ input {
 }
 .item-delete:hover {
     background: palegoldenrod;
+}
+
+@media screen and (max-width: 900px) {
+    .todo {
+        width: 425px;
+        display: block;
+    }
+    .personal {
+        margin-right: 0;
+    }
 }
 
