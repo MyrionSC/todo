@@ -40,8 +40,6 @@ export class TodoComponent implements OnInit {
         });
     }
 
-
-
     deletePersonal(n: number) {
         console.log(n);
         this.dataService.deletePersonal(n).subscribe(() => {
