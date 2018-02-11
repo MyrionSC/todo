@@ -2,12 +2,12 @@ The Server for marand todolist app
 
 endpoints:
 
-GET api/list: {short: string[], long: string[]}
-GET api/short: string[]
-GET api/long: string[]
+GET api/list: {personal: string[], professional: string[]}
+GET api/personal: string[]
+GET api/professional: string[]
 
-POST api/short(string)
-POST api/long(string)
+POST api/personal(string)
+POST api/professional(string)
 
-DELETE api/short(number)
-DELETE api/long(number)
+DELETE api/personal(number)
+DELETE api/professional(number)
