@@ -11,11 +11,12 @@
   "devDependencies": {
     "@types/body-parser": "^1.16.5",
     "@types/express": "*",
-    "@types/node": "^8.0.28"
+    "@types/node": "^8.0.28",
+    "typescript": "^2.6.0"
   },
   "scripts": {
     "b": "tsc && (mkdir dist || true) && mv src/*.js* dist/ && npm run build --prefix frontend && cp -r frontend/dist/* dist/",
-    "prod": "tsc && (mkdir dist || true) && mv src/*.js* dist/ && npm run buildprod --prefix frontend && cp -r frontend/dist/* dist/",
+    "prod": "tsc && (mkdir dist || true) && mv src/*.js* dist/ && npm run build-prod-ngsw --prefix frontend && cp -r frontend/dist/* dist/",
     "p": "npm run prod && (rm dist/data.json || true) && scp -r dist/* pi@marand.dk:/home/pi/code/todo",
     "start": "node dist",
     "test": "echo \"Error: no test specified\" && exit 1"
