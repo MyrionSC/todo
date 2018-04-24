@@ -13,7 +13,8 @@
     "ngsw-config": "node_modules/.bin/ngsw-config dist src/ngsw-config.json",
     "ngsw-copy": "cp node_modules/@angular/service-worker/ngsw-worker.js dist/",
     "build-prod-ngsw": "npm run buildprod && npm run ngsw-config && npm run ngsw-copy",
-    "publish": "scp -r ./dist/. marand@marand.dk:/var/www/html/todo"
+    "publish": "scp -r ./dist/. marand@marand.dk:/var/www/html/todo",
+    "prodpub": "npm run build-prod-ngsw && npm run publish"
   },
   "private": true,
   "dependencies": {
