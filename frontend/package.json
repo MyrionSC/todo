@@ -6,13 +6,14 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "buildprod": "ng build --env=prod --base-href=/todo/",
+    "buildprod": "ng build --env=prod --base-href './' && cp ./.htaccess dist",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "ngsw-config": "node_modules/.bin/ngsw-config dist src/ngsw-config.json",
     "ngsw-copy": "cp node_modules/@angular/service-worker/ngsw-worker.js dist/",
-    "build-prod-ngsw": "npm run buildprod && npm run ngsw-config && npm run ngsw-copy"
+    "build-prod-ngsw": "npm run buildprod && npm run ngsw-config && npm run ngsw-copy",
+    "publish": "scp -r ./dist/. marand@marand.dk:/var/www/html/todo"
   },
   "private": true,
   "dependencies": {

@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    hostUrl: 'https://marand.dk/todo/'
+    hostUrl: 'http://marand.dk:8082'
 };
