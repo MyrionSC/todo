@@ -105,7 +105,7 @@ app.delete('/api/professional/:pos', function(req: express.Request, res: express
     }
 });
 
-app.listen(8002, () => {
-    console.log("App listening on port 8002");
+app.listen(8080, () => {
+    console.log("App listening on port 8080");
 });
 

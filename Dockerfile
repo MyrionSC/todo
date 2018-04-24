@@ -12,7 +12,7 @@ COPY package*.json ./
 RUN npm install 
 
 # Make port 80 available to the world outside this container
-EXPOSE 8002
+EXPOSE 8080
 
 # Define environment variable
 ENV NAME World
