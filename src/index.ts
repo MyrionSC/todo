@@ -105,13 +105,7 @@ app.delete('/api/professional/:pos', function(req: express.Request, res: express
     }
 });
 
-// serve frontend if none of the api endpoints hit
-app.use('/*', (req, res) => {
-    console.log("Serving frontend");
-    res.sendFile(path.join(__dirname,'index.html'));
-});
-
-app.listen(8080, () => {
-    console.log("App listening on port 8080");
+app.listen(8002, () => {
+    console.log("App listening on port 8002");
 });
 

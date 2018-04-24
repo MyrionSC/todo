@@ -1,2 +1,0 @@
-read up on node deploy system
-use env vars to specify that dev should on port 3000 and prod 8080
