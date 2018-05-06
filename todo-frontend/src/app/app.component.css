@@ -1,0 +1,67 @@
+body {
+    background: beige;
+}
+
+.center {
+    margin: auto;
+    margin-top: 3em;
+}
+
+.todo {
+    width: 900px;
+    display: flex;
+}
+
+h2 {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.personal, .professional {
+    width: 425px;
+}
+
+.personal {
+    margin-right: 50px;
+}
+
+.items-table {
+    border-collapse: collapse;
+    font-size: 20px;
+}
+.item {
+    background: ivory;
+    border: 1px solid #cccccc;
+}
+.item-content {
+    width: 100%;
+    padding: 10px;
+}
+
+input {
+    width: 412px;
+    padding: 5px;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.item-delete {
+    float: right;
+    height: 20px;
+    padding: 10px;
+    cursor: pointer;
+}
+.item-delete:hover {
+    background: palegoldenrod;
+}
+
+@media screen and (max-width: 900px) {
+    .todo {
+        width: 425px;
+        display: block;
+    }
+    .personal {
+        margin-right: 0;
+    }
+}
+

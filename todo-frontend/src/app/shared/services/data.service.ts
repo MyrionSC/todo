@@ -1,11 +1,10 @@
-import {Inject, Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 
-// todo: in the future, try to remove the option objects to see if Angular fixed their shit
-// todo: The future is now!
-
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class DataService {
     url = environment.hostUrl;
 
