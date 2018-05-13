@@ -23,10 +23,10 @@ export class Db { // not really tho :P
         });
     }
 
-    public static modifyData(modifyFunc: Function) {
+    public static modifyData(modifyDataCallback: Function) {
         this.getData((data: any) => {
-            let modData = modifyFunc(data);
-            this.saveData(modData);
+            modifyDataCallback(data);
+            this.saveData(data);
         });
     }
 }
