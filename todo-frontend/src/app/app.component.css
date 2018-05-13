@@ -8,8 +8,8 @@ body {
 }
 
 .todo {
-    width: 900px;
     display: flex;
+    width: fit-content;
 }
 
 h2 {
@@ -17,12 +17,13 @@ h2 {
     margin-bottom: 10px;
 }
 
-.personal, .professional {
+.table-container {
     width: 425px;
+    margin-right: 50px;
 }
 
-.personal {
-    margin-right: 50px;
+.table-container:last-child {
+    margin-right: 0;
 }
 
 .items-table {
@@ -55,12 +56,12 @@ input {
     background: palegoldenrod;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1375px) {
     .todo {
-        width: 425px;
         display: block;
+        width: 425px;
     }
-    .personal {
+    .table-container {
         margin-right: 0;
     }
 }

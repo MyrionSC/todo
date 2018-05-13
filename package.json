@@ -9,6 +9,7 @@
     "nodejs": "0.0.0"
   },
   "devDependencies": {
+    "@angular/cli": "^6.0.1",
     "@types/body-parser": "^1.16.5",
     "@types/express": "*",
     "@types/node": "^8.0.28",

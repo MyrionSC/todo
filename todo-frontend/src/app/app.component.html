@@ -1,5 +1,5 @@
 <div class="center todo">
-  <div class="personal">
+  <div class="table-container">
     <h2>Personlig</h2>
     <table class="items-table">
       <tr class="item" *ngFor="let item of personal; let i = index">
@@ -12,8 +12,21 @@
     </table>
     <input autofocus [(ngModel)]="personalInput" (keydown.enter)="addPersonal()">
   </div>
-  <div class="professional">
+  <div class="table-container">
     <h2>Professionel</h2>
+    <table class="items-table">
+      <tr class="item" *ngFor="let item of professional; let i = index">
+        <td class="item-content">{{item}}</td>
+        <td>
+          <img class="item-delete" src="assets/images/delete.png"
+               (click)="deleteProfessional(i)">
+        </td>
+      </tr>
+    </table>
+    <input [(ngModel)]="professionalInput" (keydown.enter)="addProfessional()">
+  </div>
+  <div class="table-container">
+    <h2>Indkøb</h2>
     <table class="items-table">
       <tr class="item" *ngFor="let item of professional; let i = index">
         <td class="item-content">{{item}}</td>

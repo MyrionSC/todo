@@ -9,9 +9,11 @@ import {DataService} from "./shared/services/data.service";
 export class AppComponent {
     personal: string[];
     professional: string[];
+    shopping: string[];
 
     personalInput = "";
     professionalInput = "";
+    shoppingInput = "";
 
     constructor(private dataService: DataService) {
     }
@@ -22,6 +24,7 @@ export class AppComponent {
             console.log(data);
             this.personal = data.personal;
             this.professional = data.professional;
+            this.shopping = data.shopping;
         });
     }
 
@@ -39,6 +42,13 @@ export class AppComponent {
             this.professional.push(str);
         });
     }
+    addShopping() {
+        let str = this.professionalInput;
+        this.professionalInput = "";
+        this.dataService.addProfessional(str).subscribe(() => {
+            this.professional.push(str);
+        });
+    }
 
     deletePersonal(n: number) {
         console.log(n);
@@ -50,6 +60,12 @@ export class AppComponent {
         console.log(n);
         this.dataService.deleteProfessional(n).subscribe(() => {
             this.professional.splice(n, 1);
+        });
+    }
+    deleteShopping(n: number) {
+        console.log(n);
+        this.dataService.deleteShopping(n).subscribe(() => {
+            this.shopping.splice(n, 1);
         });
     }
 }

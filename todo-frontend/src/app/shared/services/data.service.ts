@@ -17,6 +17,7 @@ export class DataService {
         return this.httpClient.get(this.url + 'api/list');
     }
 
+    // todo: try to remove options object. I think it was fixed in 6
     addPersonal(str: string) {
         return this.httpClient.post(this.url + 'api/personal/', {"item": str},
             {
@@ -24,9 +25,15 @@ export class DataService {
                 responseType: 'text'
             });
     }
-
     addProfessional(str: string) {
         return this.httpClient.post(this.url + 'api/professional/', {"item": str},
+            {
+                headers: new HttpHeaders().set('Content-Type', 'application/json'),
+                responseType: 'text'
+            });
+    }
+    addShopping(str: string) {
+        return this.httpClient.post(this.url + 'api/shopping/', {"item": str},
             {
                 headers: new HttpHeaders().set('Content-Type', 'application/json'),
                 responseType: 'text'
@@ -40,9 +47,15 @@ export class DataService {
                 responseType: 'text'
             });
     }
-
     deleteProfessional(n: number) {
         return this.httpClient.delete(this.url + 'api/professional/' + n,
+            {
+                headers: new HttpHeaders().set('Content-Type', 'application/json'),
+                responseType: 'text'
+            });
+    }
+    deleteShopping(n: number) {
+        return this.httpClient.delete(this.url + 'api/shopping/' + n,
             {
                 headers: new HttpHeaders().set('Content-Type', 'application/json'),
                 responseType: 'text'
