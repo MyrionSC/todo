@@ -43,10 +43,10 @@ export class AppComponent {
         });
     }
     addShopping() {
-        let str = this.professionalInput;
-        this.professionalInput = "";
-        this.dataService.addProfessional(str).subscribe(() => {
-            this.professional.push(str);
+        let str = this.shoppingInput;
+        this.shoppingInput = "";
+        this.dataService.addShopping(str).subscribe(() => {
+            this.shopping.push(str);
         });
     }
 

@@ -28,14 +28,14 @@
   <div class="table-container">
     <h2>Indkøb</h2>
     <table class="items-table">
-      <tr class="item" *ngFor="let item of professional; let i = index">
+      <tr class="item" *ngFor="let item of shopping; let i = index">
         <td class="item-content">{{item}}</td>
         <td>
           <img class="item-delete" src="assets/images/delete.png"
-               (click)="deleteProfessional(i)">
+               (click)="deleteShopping(i)">
         </td>
       </tr>
     </table>
-    <input [(ngModel)]="professionalInput" (keydown.enter)="addProfessional()">
+    <input [(ngModel)]="shoppingInput" (keydown.enter)="addShopping()">
   </div>
 </div>

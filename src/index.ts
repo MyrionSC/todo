@@ -20,6 +20,7 @@ import {isNullOrUndefined} from "util";
 
 let personal: string[] = [];
 let professional: string[] = [];
+let shopping: string[] = [];
 
 // --- startup
 // read file and parse data if it exists
@@ -30,11 +31,12 @@ Utils.readDataFile((data: string) => {
 
     personal = dataobj.personal;
     professional = dataobj.professional;
+    shopping = dataobj.shopping;
 });
 
 // --- rest api
 app.get('/api/list', function(req: express.Request, res: express.Response){
-    let dataobj = Utils.createDataObj(personal, professional);
+    let dataobj = Utils.createDataObj(personal, professional, shopping);
     console.log("Sent data: " + JSON.stringify(dataobj));
     res.send(dataobj);
 });
@@ -46,13 +48,17 @@ app.get('/api/professional', function(req: express.Request, res: express.Respons
     console.log("Sent data: " + JSON.stringify(professional));
     res.send(professional);
 });
+app.get('/api/shopping', function(req: express.Request, res: express.Response){
+    console.log("Sent data: " + JSON.stringify(shopping));
+    res.send(shopping);
+});
 
 app.post('/api/personal', function(req: express.Request, res: express.Response){
     let item: string = req.body.item;
     if (item && typeof item === "string") {
         console.log("item received at /api/personal: " + item);
         personal.push(item);
-        Utils.saveData(personal, professional, () => {
+        Utils.saveData(personal, professional, shopping, () => {
             res.sendStatus(200);
         });
     } else {
@@ -65,11 +71,24 @@ app.post('/api/professional', function(req: express.Request, res: express.Respon
     if (item && typeof item === "string") {
         console.log("item received at /api/professional: " + item);
         professional.push(item);
-        Utils.saveData(personal, professional, () => {
+        Utils.saveData(personal, professional, shopping, () => {
             res.sendStatus(200);
         });
     } else {
         console.log("bad request received at /api/professional");
+        res.status(400).send('Bad request. data format should be: {"item": "string"}');
+    }
+});
+app.post('/api/shopping', function(req: express.Request, res: express.Response){
+    let item: string = req.body.item;
+    if (item && typeof item === "string") {
+        console.log("item received at /api/shopping: " + item);
+        shopping.push(item);
+        Utils.saveData(personal, professional, shopping, () => {
+            res.sendStatus(200);
+        });
+    } else {
+        console.log("bad request received at /api/shopping");
         res.status(400).send('Bad request. data format should be: {"item": "string"}');
     }
 });
@@ -101,6 +120,21 @@ app.delete('/api/professional/:pos', function(req: express.Request, res: express
         }
     } else {
         console.log("bad delete request recieved for /api/professional");
+        res.status(400).send('Bad request. data format should be: {"pos": 1}');
+    }
+});
+app.delete('/api/shopping/:pos', function(req: express.Request, res: express.Response){
+    let pos = Number(req.params.pos);
+    if (!isNullOrUndefined(pos) && typeof pos === 'number') {
+        console.log("delete request recieved for /api/shopping: " + pos)
+        let deletedItem = shopping.splice(pos, 1)[0];
+        if (deletedItem) {
+            res.sendStatus(200);
+        } else {
+            res.sendStatus(404);
+        }
+    } else {
+        console.log("bad delete request recieved for /api/shopping");
         res.status(400).send('Bad request. data format should be: {"pos": 1}');
     }
 });
