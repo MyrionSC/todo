@@ -84,52 +84,58 @@ app.post('/api/shopping', function (req: express.Request, res: express.Response)
         res.status(400).send('Bad request. data format should be: {"item": "string"}');
     }
 });
-//
-// app.delete('/api/personal/:pos', function (req: express.Request, res: express.Response) {
-//     let pos = Number(req.params.pos);
-//     if (!isNullOrUndefined(pos) && typeof pos === 'number') {
-//         console.log("delete request recieved for /api/personal: " + pos)
-//         let deletedItem = personal.splice(pos, 1)[0];
-//         if (deletedItem) {
-//             res.sendStatus(200);
-//         } else {
-//             res.sendStatus(404);
-//         }
-//     } else {
-//         console.log("bad delete request recieved for /api/personal");
-//         res.status(400).send('Bad request. data format should be: {"pos": 1}');
-//     }
-// });
-// app.delete('/api/professional/:pos', function (req: express.Request, res: express.Response) {
-//     let pos = Number(req.params.pos);
-//     if (!isNullOrUndefined(pos) && typeof pos === 'number') {
-//         console.log("delete request recieved for /api/professional: " + pos)
-//         let deletedItem = professional.splice(pos, 1)[0];
-//         if (deletedItem) {
-//             res.sendStatus(200);
-//         } else {
-//             res.sendStatus(404);
-//         }
-//     } else {
-//         console.log("bad delete request recieved for /api/professional");
-//         res.status(400).send('Bad request. data format should be: {"pos": 1}');
-//     }
-// });
-// app.delete('/api/shopping/:pos', function (req: express.Request, res: express.Response) {
-//     let pos = Number(req.params.pos);
-//     if (!isNullOrUndefined(pos) && typeof pos === 'number') {
-//         console.log("delete request recieved for /api/shopping: " + pos)
-//         let deletedItem = shopping.splice(pos, 1)[0];
-//         if (deletedItem) {
-//             res.sendStatus(200);
-//         } else {
-//             res.sendStatus(404);
-//         }
-//     } else {
-//         console.log("bad delete request recieved for /api/shopping");
-//         res.status(400).send('Bad request. data format should be: {"pos": 1}');
-//     }
-// });
+
+app.delete('/api/personal/:pos', function (req: express.Request, res: express.Response) {
+    let pos = Number(req.params.pos);
+    if (!isNullOrUndefined(pos) && typeof pos === 'number') {
+        console.log("delete request recieved for /api/personal: " + pos);
+        db.modifyData((data: any) => {
+            let deletedItem = data.personal.splice(pos, 1)[0];
+            if (deletedItem) {
+                res.sendStatus(200);
+            } else {
+                res.sendStatus(404);
+            }
+        })
+    } else {
+        console.log("bad delete request recieved for /api/personal");
+        res.status(400).send('Bad request. data format should be: {"pos": 1}');
+    }
+});
+app.delete('/api/professional/:pos', function (req: express.Request, res: express.Response) {
+    let pos = Number(req.params.pos);
+    if (!isNullOrUndefined(pos) && typeof pos === 'number') {
+        console.log("delete request recieved for /api/professional: " + pos)
+        db.modifyData((data: any) => {
+            let deletedItem = data.professional.splice(pos, 1)[0];
+            if (deletedItem) {
+                res.sendStatus(200);
+            } else {
+                res.sendStatus(404);
+            }
+        })
+    } else {
+        console.log("bad delete request recieved for /api/professional");
+        res.status(400).send('Bad request. data format should be: {"pos": 1}');
+    }
+});
+app.delete('/api/shopping/:pos', function (req: express.Request, res: express.Response) {
+    let pos = Number(req.params.pos);
+    if (!isNullOrUndefined(pos) && typeof pos === 'number') {
+        console.log("delete request recieved for /api/shopping: " + pos)
+        db.modifyData((data: any) => {
+            let deletedItem = data.shopping.splice(pos, 1)[0];
+            if (deletedItem) {
+                res.sendStatus(200);
+            } else {
+                res.sendStatus(404);
+            }
+        })
+    } else {
+        console.log("bad delete request recieved for /api/shopping");
+        res.status(400).send('Bad request. data format should be: {"pos": 1}');
+    }
+});
 
 app.listen(8080, () => {
     console.log("App listening on port 8080");
