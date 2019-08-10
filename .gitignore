@@ -62,5 +62,6 @@ typings/
 .idea/
 src/*.js*
 # build/
+build/data.json
 dist/
 
