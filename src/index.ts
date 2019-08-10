@@ -5,7 +5,9 @@ import path = require('path');
 
 let app = express();
 
-app.use(express.static(__dirname));
+
+// app.use(express.static(__dirname));
+app.use(express.static(__dirname + '/frontend'));
 app.use(bodyParser.urlencoded({extended: true})); // for parsing application/x-www-form-urlencoded
 app.use(bodyParser.json()); // for parsing application/json
 
@@ -16,8 +18,20 @@ app.use(function (req, res, next) {
     next();
 });
 
+let port = process.env.PORT || 8080;
+
 import {Db as db} from './Utils';
 import {isNullOrUndefined} from "util";
+
+
+
+// --- Serve frontend
+// app.get('/', function (req: express.Request, res: express.Response) {
+//     res.sendFile("index.html");
+// });
+
+// app.use(express.static('todo'));
+
 
 // --- rest api
 app.get('/api/list', function (req: express.Request, res: express.Response) {
@@ -137,7 +151,7 @@ app.delete('/api/shopping/:pos', function (req: express.Request, res: express.Re
     }
 });
 
-app.listen(8080, () => {
+app.listen(port, () => {
     console.log("App listening on port 8080");
 });
 
