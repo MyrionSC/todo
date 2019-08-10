@@ -1,6 +1,6 @@
 **marand todolist app**
 
-Now lives at heroku
+Now lives at heroku.
 
 *rest endpoints*
 
