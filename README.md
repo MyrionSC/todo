@@ -1,24 +1,31 @@
-The backend for marand todolist app
+**marand todolist app**
 
-This frontend is designed to be able to be served through an apache reverse proxy, so things like absolute paths to resources are an absolute no-no
+Now lives at heroku
+
+*rest endpoints*
+
+* GET api/list: {personal: string[], professional: string[]}
+* GET api/personal: string[]
+* GET api/professional: string[]
+* GET api/shopping: string[]
+* POST api/personal(string)
+* POST api/professional(string)
+* POST api/shopping(string)
+* DELETE api/personal(number)
+* DELETE api/professional(number)
+* DELETE api/shopping(number)
 
 
-rest endpoints:
+*Deploy to heroku*
 
-GET api/list: {personal: string[], professional: string[]}
+needs heroku cli and logged in.
 
-GET api/personal: string[]
+1 - build frontend in todo-frontend: nr build-prod
+2 - cp built frontend in ROOT/todo-frontend/dist to ROOT/build/frontend
+3 - commit to git
+4 - push to heroku: git push heroku master
 
-GET api/professional: string[]
-
-POST api/personal(string)
-
-POST api/professional(string)
-
-DELETE api/personal(number)
-
-DELETE api/professional(number)
-
+if there are problems: "heroku logs --tail" to see logs
 
 
 
